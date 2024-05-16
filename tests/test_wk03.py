@@ -67,9 +67,11 @@ def test_isclose(result:List[int], a:Tuple[int], x:Tuple[int], expected:int):
         columns=['result', 'expected']
     )
     df['is close'] = np.isclose(df['result'], df['expected'])
-    message = (
-        f"a={a}, x={x}\n"
-        f"{df}\n"
-    )
 
-    assert all(df['is close']), message
+    assert all(df['is close']), (
+        f"Some elements in the result are not close enough to the expected values when a={a} and x={x}:\n"
+        f"결과의 요소 중 a={a} x={x} 인 경우는 예상 값과 충분히 가깝지 않음.\n\n"
+        f"{df[~df['is close']].to_markdown(numalign='left', stralign='left', index=False)}\n\n"
+        "Please double-check your calculations for these elements.\n"
+        "이 요소들에 대한 계산을 다시 확인하기 바랍니다.\n"
+    )
