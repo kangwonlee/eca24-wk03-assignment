@@ -1,6 +1,6 @@
 ## wk03 multiply
 
-* Exercise file 실습파일 : wk03.py
+* Exercise file 실습파일 : exercise.py
 * Complete function `wk03()` as follows.<br>함수 `wk03()`을 다음과 같이 완성하시오.
 * Accept following arguments<br>다음과 같은 매개변수를 받아들이시오 :
 
